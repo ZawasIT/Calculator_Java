@@ -1,0 +1,35 @@
+.vbox-main {
+    -fx-background-color: -fx-night-bg;
+}
+
+.textField-display {
+    -fx-text-fill: -fx-font-color;
+    -fx-background-color: transparent;
+}
+
+.button-number {
+    -fx-background-color: -fx-secondary-color;
+    -fx-text-fill: -fx-button-color;
+    -fx-background-radius: 100;
+    -fx-font-size: 25;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10, 0 , 0 , 1 );
+    -fx-font-family: Consolas;
+}
+
+.button-operation {
+    -fx-background-color: -fx-third-color;
+    -fx-text-fill: -fx-button-color;
+    -fx-background-radius: 100;
+    -fx-font-size: 25;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10, 0 , 0 , 1 );
+    -fx-font-family: Consolas;
+}
+
+.button-result {
+    -fx-background-color: -fx-result-color;
+    -fx-text-fill: -fx-button-color;
+    -fx-background-radius: 100;
+    -fx-font-size: 25;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10, 0 , 0 , 1 );
+    -fx-font-family: Consolas;
+}

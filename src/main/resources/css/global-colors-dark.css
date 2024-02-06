@@ -1,0 +1,13 @@
+* {
+    -fx-night-bg: #0C1713;
+    -fx-primary-color: #032030;
+    -fx-secondary-color: #022B42;
+    -fx-third-color: #004D74;
+    -fx-result-color: #006494;
+    /*#003554
+    #004D74
+    #006494
+    #006DA4*/
+    -fx-font-color: #006DA4;
+    -fx-button-color: #FFF;
+}
