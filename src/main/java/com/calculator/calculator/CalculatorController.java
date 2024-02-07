@@ -6,17 +6,30 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalculatorController implements Initializable {
     @FXML
+    private VBox calculatorVbox;
+
+    @FXML
     private GridPane gridPane;
 
     @FXML
     private TextField displayTextField;
+
+    @FXML
+    private ToggleButton modeToggleButton;
+
+    @FXML
+    private ImageView modeImageView;
 
     @FXML
     private Button addBtn;
@@ -105,6 +118,11 @@ public class CalculatorController implements Initializable {
     @FXML
     void handleResultButtonClick(ActionEvent event) {
         System.out.println(operation);
+
+        if(displayTextField.getText().equals("")) {
+            displayTextField.setText("0");
+        }
+
         Double value;
         switch (operation) {
             case "+": {
@@ -151,7 +169,29 @@ public class CalculatorController implements Initializable {
     private Double result = Double.valueOf(0);
     private String operation = "";
 
+    @FXML
+    void changeMode(ActionEvent event) {
+        if (modeToggleButton.isSelected()) {
+            calculatorVbox.getStylesheets().clear();
+            calculatorVbox.getStylesheets().add(getClass().getResource("/css/global-colors-dark.css").toExternalForm());
+            calculatorVbox.getStylesheets().add(getClass().getResource("/css/main.css").toExternalForm());
+            modeImageView.setImage(new Image(String.valueOf(getClass().getResource("/img/sun.png"))));
+
+            modeToggleButton.setSelected(true);
+        } else {
+            calculatorVbox.getStylesheets().clear();
+            calculatorVbox.getStylesheets().add(getClass().getResource("/css/global-colors-light.css").toExternalForm());
+            calculatorVbox.getStylesheets().add(getClass().getResource("/css/main.css").toExternalForm());
+            modeImageView.setImage(new Image(String.valueOf(getClass().getResource("/img/moon.png"))));
+
+
+            modeToggleButton.setSelected(false);
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        calculatorVbox.getStylesheets().add(getClass().getResource("/css/global-colors-dark.css").toExternalForm());
+        modeToggleButton.setSelected(true);
     }
 }
