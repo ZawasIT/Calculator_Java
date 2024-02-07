@@ -16,6 +16,10 @@
     -fx-font-family: Consolas;
 }
 
+.button-number:hover {
+    -fx-background-color: derive(-fx-secondary-color, -10%);
+}
+
 .button-operation {
     -fx-background-color: -fx-third-color;
     -fx-text-fill: -fx-button-color;
@@ -23,6 +27,10 @@
     -fx-font-size: 25;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10, 0 , 0 , 1 );
     -fx-font-family: Consolas;
+}
+
+.button-operation:hover {
+    -fx-background-color: derive(-fx-third-color, -10%);
 }
 
 .button-result {
@@ -34,13 +42,14 @@
     -fx-font-family: Consolas;
 }
 
+.button-result:hover {
+    -fx-background-color: derive(-fx-result-color, -10%);
+}
+
 .mode-toggleButton {
     -fx-background-color: -fx-primary-color;
     -fx-background-radius: 100;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10, 0 , 0 , 1 );
 }
 
-.alert-warning {
-    -fx-background-color: -fx-primary-color;
-    -fx-text-fill: -fx-primary-color;
-}
+/* .mode-toggleButton:hover w css z kolorami */

@@ -12,3 +12,7 @@
     -fx-font-alert: #FFF;
     -fx-button-color: #FFF;
 }
+
+.mode-toggleButton:hover {
+    -fx-background-color: derive(-fx-primary-color, +50%);
+}

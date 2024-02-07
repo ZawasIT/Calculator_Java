@@ -1,5 +1,6 @@
 .vbox-alert {
     -fx-background-color: -fx-night-bg;
+    -fx-border-color: -fx-third-color;
 }
 
 .label-title {
@@ -14,3 +15,14 @@
     -fx-font-family: Consolas;
 
 }
+
+.button-alert {
+    -fx-background-color: -fx-third-color;
+    -fx-text-fill: -fx-font-alert;
+    -fx-font-family: Consolas;
+}
+
+.button-alert:hover {
+    -fx-background-color: derive(-fx-third-color, -10%);
+}
+

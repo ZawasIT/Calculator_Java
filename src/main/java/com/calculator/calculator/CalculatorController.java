@@ -43,6 +43,14 @@ public class CalculatorController implements Initializable {
     @FXML
     private Button resultBtn;
 
+    private boolean isInteger(double value) {
+        if(value % 1 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @FXML
     void handleClearButtonClick(ActionEvent event) {
         result = 0.0;
@@ -69,7 +77,13 @@ public class CalculatorController implements Initializable {
             if(!value.equals(0.0)) {
                 value *= -1;
             }
-            displayTextField.setText(String.valueOf(value));
+
+            if(isInteger(value)) {
+                displayTextField.setText(String.valueOf(value).substring(0,String.valueOf(value).length()-2));
+            } else {
+                displayTextField.setText(String.valueOf(value));
+            }
+
         }
     }
 
@@ -80,12 +94,16 @@ public class CalculatorController implements Initializable {
 
         String currentText = displayTextField.getText();
 
+        System.out.println(currentText);
+
         if(buttonText.equals(".")) {
             if(displayTextField.getText().equals("")){
                 displayTextField.setText("0" + buttonText);
             } else if (!displayTextField.getText().contains(".")) {
                 displayTextField.setText(currentText + buttonText);
             }
+        } else if(currentText.equals("0")) {
+            displayTextField.setText(buttonText);
         } else {
             displayTextField.setText(currentText + buttonText);
         }
@@ -127,36 +145,57 @@ public class CalculatorController implements Initializable {
         switch (operation) {
             case "+": {
                 value = result + Double.valueOf(displayTextField.getText());
-                displayTextField.setText(String.valueOf(value));
+                if(isInteger(value)) {
+                    displayTextField.setText(String.valueOf(value).substring(0,String.valueOf(value).length()-2));
+                } else {
+                    displayTextField.setText(String.valueOf(value));
+                }
                 break;
             }
             case "-": {
                 value = result - Double.valueOf(displayTextField.getText());
-                displayTextField.setText(String.valueOf(value));
+                if(isInteger(value)) {
+                    displayTextField.setText(String.valueOf(value).substring(0,String.valueOf(value).length()-2));
+                } else {
+                    displayTextField.setText(String.valueOf(value));
+                }
                 break;
             }
             case "*": {
                 value = result * Double.valueOf(displayTextField.getText());
-                displayTextField.setText(String.valueOf(value));
+                if(isInteger(value)) {
+                    displayTextField.setText(String.valueOf(value).substring(0,String.valueOf(value).length()-2));
+                } else {
+                    displayTextField.setText(String.valueOf(value));
+                }
                 break;
             }
 
             case "/": {
 
                 if(displayTextField.getText().equals("0")) {
-                    AlertView.showAlert("Błąd", "Nie dziel przez zero!");
+                    AlertView.showAlert("Błąd", "Nie dziel przez zero!", "Zrozumiałem");
                     /*displayTextField.setText("Nie dziel przez 0");
                     displayTextField.setEditable(false);*/
                 } else {
+
                     value = result / Double.valueOf(displayTextField.getText());
-                    displayTextField.setText(String.valueOf(value));
+                    if(isInteger(value)) {
+                        displayTextField.setText(String.valueOf(value).substring(0,String.valueOf(value).length()-2));
+                    } else {
+                        displayTextField.setText(String.valueOf(value));
+                    }
                 }
                 break;
             }
 
             case "%":{
                 value = (result * Double.valueOf(displayTextField.getText())) /100;
-                displayTextField.setText(String.valueOf(value));
+                if(isInteger(value)) {
+                    displayTextField.setText(String.valueOf(value).substring(0,String.valueOf(value).length()-2));
+                } else {
+                    displayTextField.setText(String.valueOf(value));
+                }
                 break;
             }
             default:
@@ -182,7 +221,7 @@ public class CalculatorController implements Initializable {
             calculatorVbox.getStylesheets().clear();
             calculatorVbox.getStylesheets().add(getClass().getResource("/css/global-colors-light.css").toExternalForm());
             calculatorVbox.getStylesheets().add(getClass().getResource("/css/main.css").toExternalForm());
-            modeImageView.setImage(new Image(String.valueOf(getClass().getResource("/img/moon.png"))));
+            modeImageView.setImage(new Image(String.valueOf(getClass().getResource("/img/moon1.png"))));
 
 
             modeToggleButton.setSelected(false);
