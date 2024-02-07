@@ -1,0 +1,16 @@
+.vbox-alert {
+    -fx-background-color: -fx-night-bg;
+}
+
+.label-title {
+    -fx-font-size: 20;
+    -fx-text-fill: -fx-font-alert;
+    -fx-font-family: Consolas;
+}
+
+.label-desc {
+    -fx-font-size: 14;
+    -fx-text-fill: -fx-font-alert;
+    -fx-font-family: Consolas;
+
+}

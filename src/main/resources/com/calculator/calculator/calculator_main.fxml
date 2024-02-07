@@ -4,13 +4,33 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" styleClass="vbox-main" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.calculator.calculator.HelloController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" styleClass="vbox-main" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.calculator.calculator.CalculatorController">
+   <HBox alignment="CENTER_RIGHT">
+      <children>
+         <ToggleButton maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="mode-toggleButton">
+            <graphic>
+               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../img/sun.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+         </ToggleButton>
+      </children>
+   </HBox>
    <TextField fx:id="displayTextField" alignment="CENTER_RIGHT" prefHeight="125.0" promptText="0" styleClass="textField-display">
       <font>
          <Font name="Consolas" size="25.0" />
@@ -41,15 +61,15 @@
          <Button fx:id="numberBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-number" text="7" GridPane.rowIndex="1" />
          <Button fx:id="numberBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-number" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          <Button fx:id="numberBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-number" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="()" GridPane.columnIndex="1" />
-         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="\%" GridPane.columnIndex="2" />
+         <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleOperationButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="\%" GridPane.columnIndex="2" />
          <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleOperationButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="/" GridPane.columnIndex="3" />
          <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleOperationButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="X" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleOperationButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          <Button fx:id="addBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleOperationButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-         <Button fx:id="resultBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleResultButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-result" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+         <Button fx:id="resultBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleResultButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-result" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4" />
          <Button fx:id="commaBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-number" text="." GridPane.columnIndex="2" GridPane.rowIndex="4" />
-         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" styleClass="button-number" text="+-" GridPane.rowIndex="4" />
+         <Button fx:id="signChangeBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleSignChangeButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-number" text="+-" GridPane.rowIndex="4" />
+         <Button fx:id="deleteBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleDeleteButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="DEL" GridPane.columnIndex="1" />
          <Button fx:id="clearBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleClearButtonClick" prefHeight="75.0" prefWidth="75.0" styleClass="button-operation" text="C" />
       </children>
    </GridPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" spacing="10.0" styleClass="vbox-alert" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.calculator.calculator.AlertController">
+   <children>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/alert.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelTitle" styleClass="label-title" text="Label" />
+      <Label fx:id="labelDesc" styleClass="label-desc" text="Label" />
+   </children>
+   <stylesheets>
+      <URL value="@../../../css/alert.css" />
+      <URL value="@../../../css/global-colors-dark.css" />
+   </stylesheets>
+</VBox>
